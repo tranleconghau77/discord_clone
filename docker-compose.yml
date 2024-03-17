@@ -10,6 +10,13 @@ services:
       MYSQL_ROOT_PASSWORD: my-secret-pw
     volumes:
       - mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
 
 volumes:
   mysql:
+    driver: local # Define the driver and options under the volume name
+    driver_opts:
+      type: none
+      device: ./mysql
+      o: bind
