@@ -38,4 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 Shadcn-ui: UI/UX
 Clerk: authentication with sign-in/sign-out
 Prisma: ORM
+npx prisma generate
+npx prisma push db
+npx primsa studio
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest
