@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { Form, useForm } from "react-hook-form";
 
 import {
   DialogHeader,
@@ -32,6 +32,10 @@ export const InitialModal = () => {
 
   const isLoading = form.formState.isSubmitting;
 
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  };
+
   return (
     <Dialog open>
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
@@ -44,6 +48,13 @@ export const InitialModal = () => {
             change it later.
           </DialogDescription>
         </DialogHeader>
+        <Form {...form}>
+          <form
+            onSubmit={() => {
+              form.handleSubmit(onSubmit);
+            }}
+          ></form>
+        </Form>
       </DialogContent>
     </Dialog>
   );
